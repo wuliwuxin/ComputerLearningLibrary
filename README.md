@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <a href="#License"><img src="/pictures/icons/License-Apache-2.0-green.svg" alt="LICENSE">
+  <a href="#License"><img src="pictures/icons/License-Apache-2.0-green.svg" alt="LICENSE">
   <a href="https://www.zhihu.com/people/wu-xin-24-36-6"><img src="https://img.shields.io/badge/zhihu-知乎-informational" alt="进阶媛小吴"></a>
   <a href="https://blog.csdn.net/wuli_xin?spm=1010.2135.3001.5343"><img src="https://img.shields.io/badge/csdn-CSDN-red.svg" alt="进阶媛小吴"></a>
   <a href="https://juejin.cn/user/958429870694733"><img src="https://img.shields.io/badge/juejin-%E6%8E%98%E9%87%91-important.svg" alt="进阶媛小吴"></a>
@@ -13,6 +13,7 @@
 
 - [前言](#前言)
 - [目录](#目录)
+- [我的公众号](#我的公众号)
 
 ## 前言
 计算学习库主要包括基础学习资料、机器学习、深度学习、阅读论文笔记、个人及推荐项目源码、面试题和面经。
@@ -45,21 +46,19 @@
 - [ ] 基础数学知识
 
 
-- [x] 快速学习OpenCV C++
+- [x] [快速学习OpenCV C++](0_BasicLearning/OpenCV_learning/README_CN.md)
 
-[快速学习OpenCV C++](/0_BasicLearning/OpenCV_learning/README_CN.md)
-
-主要内容包括：环境配置和安装软件、读取读取图像、视频和摄像头、基本功能、调整大小和裁剪、绘制形状和文本、扭曲图像、颜色检测、形状轮廓检测、人脸检测、车牌识别。
+	主要内容包括：环境配置和安装软件、读取读取图像、视频和摄像头、基本功能、调整大小和裁剪、绘制形状和文本、扭曲图像、颜色检测、形状轮廓检测、人脸检测、车牌识别。
 
 - [ ] 模型压缩与量化
 
 - [ ] 模型部署
 
 
-- [x] [Docker常用操作](/0_BasicLearning/HelloDocker/README.md)
+- [x] [Docker常用操作](0_BasicLearning/HelloDocker/README.md)
 
 
-- [x] [Spark几个实验](/0_BasicLearning/SparkDmo/README.md)
+- [x] [Spark几个实验](0_BasicLearning/SparkDmo/README.md)
 
 ### 机器学习
 - [ ] 机器学习
@@ -76,7 +75,11 @@
 ### 图像算法岗面经
 - [ ] 图像算法岗面经
 ### 其他
-- [x] [医学分类公开数据集](/MedicalDatasets/README.md)
-- [x] [数据分析笔试题集合](/7_Interview/data_analysis/README.mdREADME.md)
+- [x] [医学分类公开数据集](MedicalDatasets/README.md)
+- [x] [数据分析笔试题集合](7_Interview/data_analysis/README.mdREADME.md)
 
-![Wechat](pictures/Wechat.png)
+## 我的公众号
+更多知识和最新博客，欢迎扫码关注我的公众号`进阶媛小吴`，记录我的成长之路，分享技术总结、读书笔记和个人感悟。
+<p align="center">
+	<img src="pictures/Wechat.png">
+</p>
