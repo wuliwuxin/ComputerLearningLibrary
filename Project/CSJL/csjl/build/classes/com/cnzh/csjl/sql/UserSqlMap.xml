@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzh.csjl.dao.UserDao">
+    <cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+    <insert id="save" parameterType="com.cnzh.csjl.entity.User" useGeneratedKeys="true" keyProperty="user_Id">insert into user(user_Id,userInfo_Id,equipment_Id,result_Id,userName,passWord,phoneNumber,email,avatar,qQId,weiBoId,weChatId,genTime,editTime)values(#{user_Id},#{userInfo_Id},#{equipment_Id},#{result_Id},#{userName},#{passWord},#{phoneNumber},#{email},#{avatar},#{qQId},#{weiBoId},#{weChatId},#{genTime},#{editTime})</insert>
+    <delete id="deleteById" parameterType="long">delete from user where user_Id=#{user_Id}</delete>
+    <update id="dynamicUpdate" parameterType="com.cnzh.csjl.entity.User">update user
+        <set>
+            <if test="user_Id!=null">user_Id=#{user_Id},</if>
+            <if test="userInfo_Id!=null">userInfo_Id=#{userInfo_Id},</if>
+            <if test="equipment_Id!=null">equipment_Id=#{equipment_Id},</if>
+            <if test="result_Id!=null">result_Id=#{result_Id},</if>
+            <if test="userName!=null">userName=#{userName},</if>
+            <if test="passWord!=null">passWord=#{passWord},</if>
+            <if test="phoneNumber!=null">phoneNumber=#{phoneNumber},</if>
+            <if test="email!=null">email=#{email},</if>
+            <if test="avatar!=null">avatar=#{avatar},</if>
+            <if test="qQId!=null">qQId=#{qQId},</if>
+            <if test="weiBoId!=null">weiBoId=#{weiBoId},</if>
+            <if test="weChatId!=null">weChatId=#{weChatId},</if>
+            <if test="genTime!=null">genTime=#{genTime},</if>
+            <if test="editTime!=null">editTime=#{editTime},</if>
+        </set> where user_Id=#{user_Id}
+    </update>
+    <select id="findAll" resultType="com.cnzh.csjl.entity.User">select * from user</select>
+    <select id="findById" parameterType="long" resultType="com.cnzh.csjl.entity.User">select * from user where user_Id=#{user_Id}</select>
+    <select id="findByuserName" parameterType="String" resultType="com.cnzh.csjl.entity.User">select * from user where userName=#{userName}</select>
+    <select id="findByphoneNumber" parameterType="String" resultType="com.cnzh.csjl.entity.User">select * from user where phoneNumber=#{phoneNumber}</select>
+    <select id="findByemail" parameterType="String" resultType="com.cnzh.csjl.entity.User">select * from user where email=#{email}</select>
+    <select id="dynamicSelect" parameterType="map" resultType="com.cnzh.csjl.entity.User">select * from user
+        <where>
+            <if test="user_Id!=null">user_Id=#{user_Id},</if>
+            <if test="userInfo_Id!=null">and userInfo_Id=#{userInfo_Id},</if>
+            <if test="equipment_Id!=null">and equipment_Id=#{equipment_Id},</if>
+            <if test="result_Id!=null">and result_Id=#{result_Id},</if>
+            <if test="userName!=null">and userName=#{userName},</if>
+            <if test="passWord!=null">and passWord=#{passWord},</if>
+            <if test="phoneNumber!=null">and phoneNumber=#{phoneNumber},</if>
+            <if test="email!=null">and email=#{email},</if>
+            <if test="avatar!=null">and avatar=#{avatar},</if>
+            <if test="qQId!=null">and qQId=#{qQId},</if>
+            <if test="weiBoId!=null">and weiBoId=#{weiBoId},</if>
+            <if test="weChatId!=null">and weChatId=#{weChatId},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+            <if test="editTime!=null">and editTime=#{editTime},</if>
+        </where>
+        <if test="orderByCase!=null">order by #{orderByCase}</if>
+        <if test="startPos!=null and pageSize!=null">limit #{startPos},#{pageSize}</if>
+    </select>
+    <select id="getUserCount" parameterType="com.cnzh.csjl.entity.User" resultType="long">select Count(*) from user
+        <where>
+            <if test="user_Id!=null">user_Id=#{user_Id},</if>
+            <if test="userInfo_Id!=null">and userInfo_Id=#{userInfo_Id},</if>
+            <if test="equipment_Id!=null">and equipment_Id=#{equipment_Id},</if>
+            <if test="result_Id!=null">and result_Id=#{result_Id},</if>
+            <if test="userName!=null">and userName=#{userName},</if>
+            <if test="passWord!=null">and passWord=#{passWord},</if>
+            <if test="phoneNumber!=null">and phoneNumber=#{phoneNumber},</if>
+            <if test="email!=null">and email=#{email},</if>
+            <if test="avatar!=null">and avatar=#{avatar},</if>
+            <if test="qQId!=null">and qQId=#{qQId},</if>
+            <if test="weiBoId!=null">and weiBoId=#{weiBoId},</if>
+            <if test="weChatId!=null">and weChatId=#{weChatId},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+            <if test="editTime!=null">and editTime=#{editTime},</if>
+        </where>
+    </select>
+    <select id="findUnionByequipment_Id" parameterType="int" resultMap="userMap">select * from equipment equipment join user user on equipment.equipment_Id=user.user_Id where equipment.equipment_Id=#{equipment_Id}</select>
+    <resultMap type="com.cnzh.csjl.entity.User" id="userMap">
+        <id property="user_Id" column="user_Id"/>
+        <result property="user_Id" column="user_Id"/>
+        <result property="userInfo_Id" column="userInfo_Id"/>
+        <result property="equipment_Id" column="equipment_Id"/>
+        <result property="result_Id" column="result_Id"/>
+        <result property="userName" column="userName"/>
+        <result property="passWord" column="passWord"/>
+        <result property="phoneNumber" column="phoneNumber"/>
+        <result property="email" column="email"/>
+        <result property="avatar" column="avatar"/>
+        <result property="qQId" column="qQId"/>
+        <result property="weiBoId" column="weiBoId"/>
+        <result property="weChatId" column="weChatId"/>
+        <result property="genTime" column="genTime"/>
+        <result property="editTime" column="editTime"/>
+        <association property="Equipment" javaType="com.cnzh.csjl.entity.Equipment">
+            <id property="equipment_Id" column="equipment_Id"/>
+            <result property="equipment_Id" column="equipment_Id"/>
+            <result property="equipmentName" column="equipmentName"/>
+            <result property="genTime" column="genTime"/>
+        </association>
+        <association property="Result" javaType="com.cnzh.csjl.entity.Result">
+            <id property="result_Id" column="result_Id"/>
+            <result property="result_Id" column="result_Id"/>
+            <result property="quiltCount" column="quiltCount"/>
+            <result property="nightWakeCount" column="nightWakeCount"/>
+            <result property="genTime" column="genTime"/>
+            <result property="editTime" column="editTime"/>
+        </association>
+        <association property="Userinfo" javaType="com.cnzh.csjl.entity.Userinfo">
+            <id property="userInfo_Id" column="userInfo_Id"/>
+            <result property="userInfo_Id" column="userInfo_Id"/>
+            <result property="reallyName" column="reallyName"/>
+            <result property="sex" column="sex"/>
+            <result property="babySex" column="babySex"/>
+            <result property="baByBirthday" column="baByBirthday"/>
+            <result property="baByWeight" column="baByWeight"/>
+            <result property="equipment_ID" column="equipment_ID"/>
+            <result property="genTime" column="genTime"/>
+            <result property="editTime" column="editTime"/>
+        </association>
+    </resultMap>
+    <select id="findUnionByresult_Id" parameterType="int" resultMap="userMap">select * from result result join user user on result.result_Id=user.user_Id where result.result_Id=#{result_Id}</select>
+    <select id="findUnionByuserInfo_Id" parameterType="int" resultMap="userMap">select * from userinfo userinfo join user user on userinfo.userInfo_Id=user.user_Id where userinfo.userInfo_Id=#{userInfo_Id}</select>
+</mapper>

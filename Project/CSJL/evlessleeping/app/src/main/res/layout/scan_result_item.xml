@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:paddingLeft="10dp"
+	android:paddingRight="10dp" >
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" >
+
+		<TextView
+			android:id="@+id/ssid_tv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:padding="10dp"
+			android:text="ssid"
+			android:textSize="18sp" />
+
+		<TextView
+			android:id="@+id/pwd_tv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/ssid_tv"
+			android:padding="10dp"
+			android:text="" />
+
+		<TextView
+			android:id="@+id/freq_tv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/ssid_tv"
+			android:padding="10dp"
+			android:text="ssid" />
+
+		<TextView
+			android:id="@+id/level_tv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/ssid_tv"
+			android:layout_toRightOf="@id/freq_tv"
+			android:padding="10dp"
+			android:text="ssid" />
+
+		<TextView
+			android:id="@+id/encrypt_tv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/ssid_tv"
+			android:layout_toRightOf="@id/level_tv"
+			android:padding="10dp"
+			android:text="" />
+
+		<TextView
+			android:id="@+id/connect_tv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:padding="10dp"
+			android:text="已连接" />
+	</RelativeLayout>
+
+</LinearLayout>

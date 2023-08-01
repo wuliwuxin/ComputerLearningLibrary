@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzh.csjl.dao.EquipmentDao">
+    <cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+    <insert id="save" parameterType="com.cnzh.csjl.entity.Equipment" useGeneratedKeys="true" keyProperty="equipment_Id">insert into equipment(equipment_Id,equipmentName)values(#{equipment_Id},#{equipmentName})</insert>
+    <delete id="deleteById" parameterType="long">delete from equipment where equipment_Id=#{equipment_Id}</delete>
+    <update id="dynamicUpdate" parameterType="com.cnzh.csjl.entity.Equipment">update equipment
+        <set>
+            <if test="equipment_Id!=null">equipment_Id=#{equipment_Id},</if>
+            <if test="equipmentName!=null">equipmentName=#{equipmentName},</if>
+        </set> where equipment_Id=#{equipment_Id}
+    </update>
+    <select id="findAll" resultType="com.cnzh.csjl.entity.Equipment">select * from equipment</select>
+    <select id="findById" parameterType="long" resultType="com.cnzh.csjl.entity.Equipment">select * from equipment where equipment_Id=#{equipment_Id}</select>
+    <select id="dynamicSelect" parameterType="map" resultType="com.cnzh.csjl.entity.Equipment">select * from equipment
+        <where>
+            <if test="equipment_Id!=null">equipment_Id=#{equipment_Id},</if>
+            <if test="equipmentName!=null">and equipmentName=#{equipmentName},</if>
+        </where>
+        <if test="orderByCase!=null">order by #{orderByCase}</if>
+        <if test="startPos!=null and pageSize!=null">limit #{startPos},#{pageSize}</if>
+    </select>
+    <select id="getEquipmentCount" parameterType="com.cnzh.csjl.entity.Equipment" resultType="long">select Count(*) from equipment
+        <where>
+            <if test="equipment_Id!=null">equipment_Id=#{equipment_Id},</if>
+            <if test="equipmentName!=null">and equipmentName=#{equipmentName},</if>
+        </where>
+    </select>
+    <select id="findUnionByDaytimedata_Id" parameterType="int" resultMap="equipmentMap">select * from equipment equipment join daytimedata daytimedata on equipment.equipment_Id=daytimedata.daytimeData_Id where equipment.equipment_Id=#{equipment_Id}</select>
+    <resultMap type="com.cnzh.csjl.entity.Equipment" id="equipmentMap">
+        <id property="equipment_Id" column="equipment_Id"/>
+        <result property="equipment_Id" column="equipment_Id"/>
+        <result property="equipmentName" column="equipmentName"/>
+        <collection property="Daytimedata" javaType="com.cnzh.csjl.entity.Daytimedata">
+            <id property="daytimeData_Id" column="daytimeData_Id"/>
+            <result property="daytimeData_Id" column="daytimeData_Id"/>
+            <result property="equipment_Id" column="equipment_Id"/>
+            <result property="imageName" column="imageName"/>
+            <result property="indoorTemperature" column="indoorTemperature"/>
+            <result property="bodyTemperature" column="bodyTemperature"/>
+            <result property="acquisitionTime" column="acquisitionTime"/>
+            <result property="genTime" column="genTime"/>
+        </collection>
+        <collection property="Nightdata" javaType="com.cnzh.csjl.entity.Nightdata">
+            <id property="nightData_Id" column="nightData_Id"/>
+            <result property="nightData_Id" column="nightData_Id"/>
+            <result property="equipment_Id" column="equipment_Id"/>
+            <result property="imageName" column="imageName"/>
+            <result property="indoorTemperature" column="indoorTemperature"/>
+            <result property="bodyTemperature" column="bodyTemperature"/>
+            <result property="acquisitionTime" column="acquisitionTime"/>
+            <result property="genTime" column="genTime"/>
+        </collection>
+        <collection property="User" javaType="com.cnzh.csjl.entity.User">
+            <id property="user_Id" column="user_Id"/>
+            <result property="user_Id" column="user_Id"/>
+            <result property="userInfo_Id" column="userInfo_Id"/>
+            <result property="equipment_Id" column="equipment_Id"/>
+            <result property="result_Id" column="result_Id"/>
+            <result property="userName" column="userName"/>
+            <result property="passWord" column="passWord"/>
+            <result property="phoneNumber" column="phoneNumber"/>
+            <result property="email" column="email"/>
+            <result property="avatar" column="avatar"/>
+            <result property="qQId" column="qQId"/>
+            <result property="weiBoId" column="weiBoId"/>
+            <result property="weChatId" column="weChatId"/>
+            <result property="genTime" column="genTime"/>
+            <result property="editTime" column="editTime"/>
+        </collection>
+    </resultMap>
+    <select id="findUnionByNightdata_Id" parameterType="int" resultMap="equipmentMap">select * from equipment equipment join nightdata nightdata on equipment.equipment_Id=nightdata.nightData_Id where equipment.equipment_Id=#{equipment_Id}</select>
+    <select id="findUnionByUser_Id" parameterType="int" resultMap="equipmentMap">select * from equipment equipment join user user on equipment.equipment_Id=user.user_Id where equipment.equipment_Id=#{equipment_Id}</select>
+</mapper>

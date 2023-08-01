@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>csjl-主页</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/conan.css" rel="stylesheet">
+</head>
+<body>
+<script src="js/jquery.min.js"></script> 
+<script  src="js/conan.js"></script>
+<script  src="js/bootstrap.min.js"></script>
+<script  src="js/vue.min.js"></script>
+<script  src="js/vue-resource.js"></script>
+
+ <div class="row clearfix" id="page-index-header">
+    
+ </div>
+<div class="container">
+    <!-- 导航开始--->
+   
+    <!---- 导航结束--->
+    <div class="row clearfix" >
+        <div class="col-md-12">
+            <div class="row clearfix" >
+                <div class="col-md-3" id="page-index-sider">
+                </div>
+                <div class="col-md-9" id="page-index-body">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row clearfix" id="page-index-footer"> </div>
+</div>
+
+<script >
+     $("#page-index-header").load("page-index-header.html");
+     $("#page-index-sider").load("page-index-sider.html",function(){
+    		$(document).ready(function(){
+    			
+    		        $("#At_index").click(function(){
+    		              $("#page-index-body").load("At/index.html");
+    		        });
+    		        $("#At-add").click(function(){
+    		              $("#page-index-body").load("At/At-add.html");
+    		        });
+    		        $("#At-edit").click(function(){
+    		              $("#page-index-body").load("At/At-edit.html");
+    		        });
+    		        $("#At-select").click(function(){
+    		              $("#page-index-body").load("At/At-select.html");
+    		        });
+    		        $("#Daytimedata_index").click(function(){
+    		              $("#page-index-body").load("Daytimedata/index.html");
+    		        });
+    		        $("#Daytimedata-add").click(function(){
+    		              $("#page-index-body").load("Daytimedata/Daytimedata-add.html");
+    		        });
+    		        $("#Daytimedata-edit").click(function(){
+    		              $("#page-index-body").load("Daytimedata/Daytimedata-edit.html");
+    		        });
+    		        $("#Daytimedata-select").click(function(){
+    		              $("#page-index-body").load("Daytimedata/Daytimedata-select.html");
+    		        });
+    		        $("#Equipment_index").click(function(){
+    		              $("#page-index-body").load("Equipment/index.html");
+    		        });
+    		        $("#Equipment-add").click(function(){
+    		              $("#page-index-body").load("Equipment/Equipment-add.html");
+    		        });
+    		        $("#Equipment-edit").click(function(){
+    		              $("#page-index-body").load("Equipment/Equipment-edit.html");
+    		        });
+    		        $("#Equipment-select").click(function(){
+    		              $("#page-index-body").load("Equipment/Equipment-select.html");
+    		        });
+    		        $("#Nightdata_index").click(function(){
+    		              $("#page-index-body").load("Nightdata/index.html");
+    		        });
+    		        $("#Nightdata-add").click(function(){
+    		              $("#page-index-body").load("Nightdata/Nightdata-add.html");
+    		        });
+    		        $("#Nightdata-edit").click(function(){
+    		              $("#page-index-body").load("Nightdata/Nightdata-edit.html");
+    		        });
+    		        $("#Nightdata-select").click(function(){
+    		              $("#page-index-body").load("Nightdata/Nightdata-select.html");
+    		        });
+    		        $("#Result_index").click(function(){
+    		              $("#page-index-body").load("Result/index.html");
+    		        });
+    		        $("#Result-add").click(function(){
+    		              $("#page-index-body").load("Result/Result-add.html");
+    		        });
+    		        $("#Result-edit").click(function(){
+    		              $("#page-index-body").load("Result/Result-edit.html");
+    		        });
+    		        $("#Result-select").click(function(){
+    		              $("#page-index-body").load("Result/Result-select.html");
+    		        });
+    		        $("#User_index").click(function(){
+    		              $("#page-index-body").load("User/index.html");
+    		        });
+    		        $("#User-add").click(function(){
+    		              $("#page-index-body").load("User/User-add.html");
+    		        });
+    		        $("#User-edit").click(function(){
+    		              $("#page-index-body").load("User/User-edit.html");
+    		        });
+    		        $("#User-select").click(function(){
+    		              $("#page-index-body").load("User/User-select.html");
+    		        });
+    		        $("#Userinfo_index").click(function(){
+    		              $("#page-index-body").load("Userinfo/index.html");
+    		        });
+    		        $("#Userinfo-add").click(function(){
+    		              $("#page-index-body").load("Userinfo/Userinfo-add.html");
+    		        });
+    		        $("#Userinfo-edit").click(function(){
+    		              $("#page-index-body").load("Userinfo/Userinfo-edit.html");
+    		        });
+    		        $("#Userinfo-select").click(function(){
+    		              $("#page-index-body").load("Userinfo/Userinfo-select.html");
+    		        });
+    		     });
+     });
+	 $("#page-footer").load("page-footer.html");
+
+</script>
+</body>
+</html>

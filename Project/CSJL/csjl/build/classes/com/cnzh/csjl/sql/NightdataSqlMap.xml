@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzh.csjl.dao.NightdataDao">
+    <cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+    <insert id="save" parameterType="com.cnzh.csjl.entity.Nightdata" useGeneratedKeys="true" keyProperty="nightData_Id">insert into nightdata(nightData_Id,equipment_Id,imageName,indoorTemperature,bodyTemperature,acquisitionTime,genTime)values(#{nightData_Id},#{equipment_Id},#{imageName},#{indoorTemperature},#{bodyTemperature},#{acquisitionTime},#{genTime})</insert>
+    <delete id="deleteById" parameterType="long">delete from nightdata where nightData_Id=#{nightData_Id}</delete>
+    <update id="dynamicUpdate" parameterType="com.cnzh.csjl.entity.Nightdata">update nightdata
+        <set>
+            <if test="nightData_Id!=null">nightData_Id=#{nightData_Id},</if>
+            <if test="equipment_Id!=null">equipment_Id=#{equipment_Id},</if>
+            <if test="imageName!=null">imageName=#{imageName},</if>
+            <if test="indoorTemperature!=null">indoorTemperature=#{indoorTemperature},</if>
+            <if test="bodyTemperature!=null">bodyTemperature=#{bodyTemperature},</if>
+            <if test="acquisitionTime!=null">acquisitionTime=#{acquisitionTime},</if>
+            <if test="genTime!=null">genTime=#{genTime},</if>
+        </set> where nightData_Id=#{nightData_Id}
+    </update>
+    <select id="findAll" resultType="com.cnzh.csjl.entity.Nightdata">select * from nightdata</select>
+    <select id="findById" parameterType="long" resultType="com.cnzh.csjl.entity.Nightdata">select * from nightdata where nightData_Id=#{nightData_Id}</select>
+    <select id="findByEquipmentId" parameterType="long" resultType="com.cnzh.csjl.entity.Nightdata">select * from nightdata where equipment_Id=#{equipment_Id}</select>
+    <select id="dynamicSelect" parameterType="map" resultType="com.cnzh.csjl.entity.Nightdata">select * from nightdata
+        <where>
+            <if test="nightData_Id!=null">nightData_Id=#{nightData_Id},</if>
+            <if test="equipment_Id!=null">and equipment_Id=#{equipment_Id},</if>
+            <if test="imageName!=null">and imageName=#{imageName},</if>
+            <if test="indoorTemperature!=null">and indoorTemperature=#{indoorTemperature},</if>
+            <if test="bodyTemperature!=null">and bodyTemperature=#{bodyTemperature},</if>
+            <if test="acquisitionTime!=null">and acquisitionTime=#{acquisitionTime},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+        </where>
+        <if test="orderByCase!=null">order by #{orderByCase}</if>
+        <if test="startPos!=null and pageSize!=null">limit #{startPos},#{pageSize}</if>
+    </select>
+    <select id="getNightdataCount" parameterType="com.cnzh.csjl.entity.Nightdata" resultType="long">select Count(*) from nightdata
+        <where>
+            <if test="nightData_Id!=null">nightData_Id=#{nightData_Id},</if>
+            <if test="equipment_Id!=null">and equipment_Id=#{equipment_Id},</if>
+            <if test="imageName!=null">and imageName=#{imageName},</if>
+            <if test="indoorTemperature!=null">and indoorTemperature=#{indoorTemperature},</if>
+            <if test="bodyTemperature!=null">and bodyTemperature=#{bodyTemperature},</if>
+            <if test="acquisitionTime!=null">and acquisitionTime=#{acquisitionTime},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+        </where>
+    </select>
+    <select id="findUnionByequipment_Id" parameterType="int" resultMap="nightdataMap">select * from equipment equipment join nightdata nightdata on equipment.equipment_Id=nightdata.nightData_Id where equipment.equipment_Id=#{equipment_Id}</select>
+    <resultMap type="com.cnzh.csjl.entity.Nightdata" id="nightdataMap">
+        <id property="nightData_Id" column="nightData_Id"/>
+        <result property="nightData_Id" column="nightData_Id"/>
+        <result property="equipment_Id" column="equipment_Id"/>
+        <result property="imageName" column="imageName"/>
+        <result property="indoorTemperature" column="indoorTemperature"/>
+        <result property="bodyTemperature" column="bodyTemperature"/>
+        <result property="acquisitionTime" column="acquisitionTime"/>
+        <result property="genTime" column="genTime"/>
+        <association property="Equipment" javaType="com.cnzh.csjl.entity.Equipment">
+            <id property="equipment_Id" column="equipment_Id"/>
+            <result property="equipment_Id" column="equipment_Id"/>
+            <result property="equipmentName" column="equipmentName"/>
+        </association>
+    </resultMap>
+</mapper>

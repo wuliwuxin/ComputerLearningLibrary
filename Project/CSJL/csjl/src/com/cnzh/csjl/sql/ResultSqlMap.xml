@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzh.csjl.dao.ResultDao">
+    <cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+    <insert id="save" parameterType="com.cnzh.csjl.entity.Result" useGeneratedKeys="true" keyProperty="result_Id">insert into result(result_Id,quiltCount,nightWakeCount,genTime,editTime)values(#{result_Id},#{quiltCount},#{nightWakeCount},#{genTime},#{editTime})</insert>
+    <delete id="deleteById" parameterType="long">delete from result where result_Id=#{result_Id}</delete>
+    <update id="dynamicUpdate" parameterType="com.cnzh.csjl.entity.Result">update result
+        <set>
+            <if test="result_Id!=null">result_Id=#{result_Id},</if>
+            <if test="quiltCount!=null">quiltCount=#{quiltCount},</if>
+            <if test="nightWakeCount!=null">nightWakeCount=#{nightWakeCount},</if>
+            <if test="genTime!=null">genTime=#{genTime},</if>
+            <if test="editTime!=null">editTime=#{editTime},</if>
+        </set> where result_Id=#{result_Id}
+    </update>
+    <select id="findAll" resultType="com.cnzh.csjl.entity.Result">select * from result</select>
+    <select id="findById" parameterType="long" resultType="com.cnzh.csjl.entity.Result">select * from result where result_Id=#{result_Id}</select>
+    <select id="dynamicSelect" parameterType="map" resultType="com.cnzh.csjl.entity.Result">select * from result
+        <where>
+            <if test="result_Id!=null">result_Id=#{result_Id},</if>
+            <if test="quiltCount!=null">and quiltCount=#{quiltCount},</if>
+            <if test="nightWakeCount!=null">and nightWakeCount=#{nightWakeCount},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+            <if test="editTime!=null">and editTime=#{editTime},</if>
+        </where>
+        <if test="orderByCase!=null">order by #{orderByCase}</if>
+        <if test="startPos!=null and pageSize!=null">limit #{startPos},#{pageSize}</if>
+    </select>
+    <select id="getResultCount" parameterType="com.cnzh.csjl.entity.Result" resultType="long">select Count(*) from result
+        <where>
+            <if test="result_Id!=null">result_Id=#{result_Id},</if>
+            <if test="quiltCount!=null">and quiltCount=#{quiltCount},</if>
+            <if test="nightWakeCount!=null">and nightWakeCount=#{nightWakeCount},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+            <if test="editTime!=null">and editTime=#{editTime},</if>
+        </where>
+    </select>
+    <select id="findUnionByUser_Id" parameterType="int" resultMap="resultMap">select * from result result join user user on result.result_Id=user.user_Id where result.result_Id=#{result_Id}</select>
+    <resultMap type="com.cnzh.csjl.entity.Result" id="resultMap">
+        <id property="result_Id" column="result_Id"/>
+        <result property="result_Id" column="result_Id"/>
+        <result property="quiltCount" column="quiltCount"/>
+        <result property="nightWakeCount" column="nightWakeCount"/>
+        <result property="genTime" column="genTime"/>
+        <result property="editTime" column="editTime"/>
+        <collection property="User" javaType="com.cnzh.csjl.entity.User">
+            <id property="user_Id" column="user_Id"/>
+            <result property="user_Id" column="user_Id"/>
+            <result property="userInfo_Id" column="userInfo_Id"/>
+            <result property="equipment_Id" column="equipment_Id"/>
+            <result property="result_Id" column="result_Id"/>
+            <result property="userName" column="userName"/>
+            <result property="passWord" column="passWord"/>
+            <result property="phoneNumber" column="phoneNumber"/>
+            <result property="email" column="email"/>
+            <result property="avatar" column="avatar"/>
+            <result property="qQId" column="qQId"/>
+            <result property="weiBoId" column="weiBoId"/>
+            <result property="weChatId" column="weChatId"/>
+            <result property="genTime" column="genTime"/>
+            <result property="editTime" column="editTime"/>
+        </collection>
+    </resultMap>
+</mapper>

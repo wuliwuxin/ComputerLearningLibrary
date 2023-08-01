@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">evles</string>
+    <dimen  name="activity_vertical_margin">10dp</dimen>
+    <dimen name="activity_horizontal_margin">10dp</dimen>
+    <string name="account_empty">用户名不能为空</string>
+    <string name="name_already_exist">用户名已存在</string>
+    <string name="pwd_empty">密码不能为空</string>
+    <string name="pwd_not_the_same">两次密码输入不一样</string>
+    <string name="resetpwd_fail">重置密码失败</string>
+    <string name="resetpwd_success">重置密码失败</string>
+    <string name="pwd_not_fit_user">用户名和密码不匹配，重新输入</string>
+    <string name="pwd_new_empty">新密码不能为空</string>
+    <string name="pwd_check_empty">核对不能为空</string>
+    <string name="name_not_exist">用户不存在</string>
+    <string name="region_fail">新建用户失败</string>
+    <string name="region_success">新建用户成功</string>
+</resources>

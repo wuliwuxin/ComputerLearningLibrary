@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzh.csjl.dao.AtDao">
+    <cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+    <insert id="save" parameterType="com.cnzh.csjl.entity.At" useGeneratedKeys="true" keyProperty="aT_id">insert into at(aT_id,accessToken,genTime)values(#{aT_id},#{accessToken},#{genTime})</insert>
+    <delete id="deleteById" parameterType="long">delete from at where aT_id=#{aT_id}</delete>
+    <update id="dynamicUpdate" parameterType="com.cnzh.csjl.entity.At">update at
+        <set>
+            <if test="aT_id!=null">aT_id=#{aT_id},</if>
+            <if test="accessToken!=null">accessToken=#{accessToken},</if>
+            <if test="genTime!=null">genTime=#{genTime},</if>
+        </set> where aT_id=#{aT_id}
+    </update>
+    <select id="findAll" resultType="com.cnzh.csjl.entity.At">select * from at</select>
+    <select id="findById" parameterType="long" resultType="com.cnzh.csjl.entity.At">select * from at where aT_id=#{aT_id}</select>
+    <select id="dynamicSelect" parameterType="map" resultType="com.cnzh.csjl.entity.At">select * from at
+        <where>
+            <if test="aT_id!=null">aT_id=#{aT_id},</if>
+            <if test="accessToken!=null">and accessToken=#{accessToken},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+        </where>
+        <if test="orderByCase!=null">order by #{orderByCase}</if>
+        <if test="startPos!=null and pageSize!=null">limit #{startPos},#{pageSize}</if>
+    </select>
+    <select id="getAtCount" parameterType="com.cnzh.csjl.entity.At" resultType="long">select Count(*) from at
+        <where>
+            <if test="aT_id!=null">aT_id=#{aT_id},</if>
+            <if test="accessToken!=null">and accessToken=#{accessToken},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+        </where>
+    </select>
+</mapper>

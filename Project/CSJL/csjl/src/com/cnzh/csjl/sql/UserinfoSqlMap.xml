@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.cnzh.csjl.dao.UserinfoDao">
+    <cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+    <insert id="save" parameterType="com.cnzh.csjl.entity.Userinfo" useGeneratedKeys="true" keyProperty="userInfo_Id">insert into userinfo(userInfo_Id,reallyName,sex,babySex,baByBirthday,baByWeight,equipment_ID,genTime,editTime)values(#{userInfo_Id},#{reallyName},#{sex},#{babySex},#{baByBirthday},#{baByWeight},#{equipment_ID},#{genTime},#{editTime})</insert>
+    <delete id="deleteById" parameterType="long">delete from userinfo where userInfo_Id=#{userInfo_Id}</delete>
+    <update id="dynamicUpdate" parameterType="com.cnzh.csjl.entity.Userinfo">update userinfo
+        <set>
+            <if test="userInfo_Id!=null">userInfo_Id=#{userInfo_Id},</if>
+            <if test="reallyName!=null">reallyName=#{reallyName},</if>
+            <if test="sex!=null">sex=#{sex},</if>
+            <if test="babySex!=null">babySex=#{babySex},</if>
+            <if test="baByBirthday!=null">baByBirthday=#{baByBirthday},</if>
+            <if test="baByWeight!=null">baByWeight=#{baByWeight},</if>
+            <if test="equipment_ID!=null">equipment_ID=#{equipment_ID},</if>
+            <if test="genTime!=null">genTime=#{genTime},</if>
+            <if test="editTime!=null">editTime=#{editTime},</if>
+        </set> where userInfo_Id=#{userInfo_Id}
+    </update>
+    <select id="findAll" resultType="com.cnzh.csjl.entity.Userinfo">select * from userinfo</select>
+    <select id="findById" parameterType="long" resultType="com.cnzh.csjl.entity.Userinfo">select * from userinfo where userInfo_Id=#{userInfo_Id}</select>
+    <select id="dynamicSelect" parameterType="map" resultType="com.cnzh.csjl.entity.Userinfo">select * from userinfo
+        <where>
+            <if test="userInfo_Id!=null">userInfo_Id=#{userInfo_Id},</if>
+            <if test="reallyName!=null">and reallyName=#{reallyName},</if>
+            <if test="sex!=null">and sex=#{sex},</if>
+            <if test="babySex!=null">and babySex=#{babySex},</if>
+            <if test="baByBirthday!=null">and baByBirthday=#{baByBirthday},</if>
+            <if test="baByWeight!=null">and baByWeight=#{baByWeight},</if>
+            <if test="equipment_ID!=null">and equipment_ID=#{equipment_ID},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+            <if test="editTime!=null">and editTime=#{editTime},</if>
+        </where>
+        <if test="orderByCase!=null">order by #{orderByCase}</if>
+        <if test="startPos!=null and pageSize!=null">limit #{startPos},#{pageSize}</if>
+    </select>
+    <select id="getUserinfoCount" parameterType="com.cnzh.csjl.entity.Userinfo" resultType="long">select Count(*) from userinfo
+        <where>
+            <if test="userInfo_Id!=null">userInfo_Id=#{userInfo_Id},</if>
+            <if test="reallyName!=null">and reallyName=#{reallyName},</if>
+            <if test="sex!=null">and sex=#{sex},</if>
+            <if test="babySex!=null">and babySex=#{babySex},</if>
+            <if test="baByBirthday!=null">and baByBirthday=#{baByBirthday},</if>
+            <if test="baByWeight!=null">and baByWeight=#{baByWeight},</if>
+            <if test="equipment_ID!=null">and equipment_ID=#{equipment_ID},</if>
+            <if test="genTime!=null">and genTime=#{genTime},</if>
+            <if test="editTime!=null">and editTime=#{editTime},</if>
+        </where>
+    </select>
+    <select id="findUnionByUser_Id" parameterType="int" resultMap="userinfoMap">select * from userinfo userinfo join user user on userinfo.userInfo_Id=user.user_Id where userinfo.userInfo_Id=#{userInfo_Id}</select>
+    <resultMap type="com.cnzh.csjl.entity.Userinfo" id="userinfoMap">
+        <id property="userInfo_Id" column="userInfo_Id"/>
+        <result property="userInfo_Id" column="userInfo_Id"/>
+        <result property="reallyName" column="reallyName"/>
+        <result property="sex" column="sex"/>
+        <result property="babySex" column="babySex"/>
+        <result property="baByBirthday" column="baByBirthday"/>
+        <result property="baByWeight" column="baByWeight"/>
+        <result property="equipment_ID" column="equipment_ID"/>
+        <result property="genTime" column="genTime"/>
+        <result property="editTime" column="editTime"/>
+        <collection property="User" javaType="com.cnzh.csjl.entity.User">
+            <id property="user_Id" column="user_Id"/>
+            <result property="user_Id" column="user_Id"/>
+            <result property="userInfo_Id" column="userInfo_Id"/>
+            <result property="equipment_Id" column="equipment_Id"/>
+            <result property="result_Id" column="result_Id"/>
+            <result property="userName" column="userName"/>
+            <result property="passWord" column="passWord"/>
+            <result property="phoneNumber" column="phoneNumber"/>
+            <result property="email" column="email"/>
+            <result property="avatar" column="avatar"/>
+            <result property="qQId" column="qQId"/>
+            <result property="weiBoId" column="weiBoId"/>
+            <result property="weChatId" column="weChatId"/>
+            <result property="genTime" column="genTime"/>
+            <result property="editTime" column="editTime"/>
+        </collection>
+    </resultMap>
+</mapper>

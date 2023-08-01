@@ -1,0 +1,116 @@
+
+<div class="col-md-12 column">
+    <ul class="breadcrumb">
+        <li><a href="#">主页</a></li>
+        <li><a href="Result/index.html">结果表管理</a></li>
+        <li class="active">所有结果表查询</li>
+    </ul>
+    <!---内容页修改部分   -->
+    <div id="Result">
+        <table class="table table-bordered" >
+            <thead>
+                <tr>
+                    <th v-for="n in thname" class="breadcrumb">{{n}}</th>
+                </tr>
+            </thead>
+            <tbody v-for="ch in result">
+                <!-- '结果表ID','踢被子次数','夜间醒来次数','创建时间','修改时间','操作' -->
+                <tr class="success">
+                    <td  class="default">{{ch.result_Id}}</td>
+					 <td>{{ch.quiltCount}}</td>
+					 <td>{{ch.nightWakeCount}}</td>
+					 <td>{{ch.genTimeString}}</td>
+					 <td>{{ch.editTimeString}}</td>
+                    <td> <a :href="'?actin=del&result_Id='+ch.result_Id">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="pagination" >
+            <li v-show="current != 1" @click="current-- && gotoPage(current)" ><a href="#">上一页</a></li>
+            <li v-for="index in pages" @click="gotoPage(index)" :class="{'active':current == index}" :key="index">
+              <a href="#" >{{index}}</a>
+            </li>
+            <li v-show="allpage != current && allpage != 0 " @click="current++ && gotoPage(current++)"><a href="#" >下一页</a></li>
+        </ul>
+      
+        <!---内页修改结束 --> 
+    </div>
+</div>
+
+<script>
+
+ var th=new Array('结果表ID','踢被子次数','夜间醒来次数','创建时间','修改时间','操作');
+ 
+
+ var app = new Vue({
+el: '#Result',
+data: {
+	 result: '' ,
+	 thname:th,
+	 current:1,
+     showItem:5,
+     allpage:13,
+     formData:{
+    	    pageNow:1,
+    	    pageSize:5
+     }
+	},	
+	computed:{
+	    pages:function(){
+	          var pag = [];
+	            if( this.current < this.showItem ){ //如果当前的激活的项 小于要显示的条数
+	                 //总页数和要显示的条数那个大就显示多少条
+	                 var i = Math.min(this.showItem,this.allpage);
+	                 while(i){
+	                     pag.unshift(i--);
+	                 }
+	             }else{ //当前页数大于显示页数了
+	                 var middle = this.current - Math.floor(this.showItem / 2 ),//从哪里开始
+	                     i = this.showItem;
+	                 if( middle >  (this.allpage - this.showItem)  ){
+	                     middle = (this.allpage - this.showItem) + 1
+	                 }
+	                 while(i--){
+	                     pag.push( middle++ );
+	                 }
+	             }
+	           return pag
+	         }
+	},
+mounted: function() {
+ this.getJsonInfo();
+},
+methods: {
+ getJsonInfo: function() {
+	 //var formData = JSON.stringify(this.page);
+	// var para={'pageNow':this.formData.pageNow,'pageSize':this.formData.pageSize}
+   this.$http.post('../Result/selectResult',this.formData,{emulateJSON:true}).then(function(result){
+    if(result.status){
+    	this.result = result.data.data;
+    //	console.log(result.data);
+    	var p=result.data.page;
+    	if(p){
+    		this.formData=result.data.page; 	
+    		this.current=p.pageNow;
+    		this.allpage=p.totalPageCount;
+     	} 
+    }
+    else{
+    	 showdanger("#Result",result.data.msg);
+    }
+   }).catch(function(response){
+	  showdanger("#Result",response);
+   });
+ }, 
+ gotoPage:function(index){
+		    if(index == this.current) return;
+		      this.current = index;
+		      this.formData.pageNow=index;
+		      this.getJsonInfo();
+ }}
+});
+
+
+
+ </script>
+
