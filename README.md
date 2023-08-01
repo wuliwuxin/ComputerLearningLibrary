@@ -7,3 +7,7 @@
 - 阅读论文笔记关于CV方向的论文，也可能会有NLP方向的部分文章，主要目的是方便新手学习和自我回顾。
 - 面试题和面经，以面试为主要目的，亦不可以篇概全，请谅解，有问题可提出。
 - 此项目也包括自己的小项目和推荐的项目，仅供参考，也欢迎大家`Star`和`Fork`。
+
+
+
+![Wechat](/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/pictures/Wechat.png)
