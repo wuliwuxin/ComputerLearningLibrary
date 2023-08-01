@@ -10,4 +10,4 @@
 
 
 
-![Wechat](/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/pictures/Wechat.png)
+![Wechat](pictures/Wechat.png)
