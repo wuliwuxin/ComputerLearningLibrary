@@ -3,12 +3,12 @@
 </h1>
 
 <p align="center">
-  <a href="#License"><img src="./data/icons/License-Apache-2.0-green.svg" alt="LICENSE">
+  <a href="#License"><img src="/pictures/icons/License-Apache-2.0-green.svg" alt="LICENSE">
   <a href="https://www.zhihu.com/people/wu-xin-24-36-6"><img src="https://img.shields.io/badge/zhihu-知乎-informational" alt="进阶媛小吴"></a>
   <a href="https://blog.csdn.net/wuli_xin?spm=1010.2135.3001.5343"><img src="https://img.shields.io/badge/csdn-CSDN-red.svg" alt="进阶媛小吴"></a>
   <a href="https://juejin.cn/user/958429870694733"><img src="https://img.shields.io/badge/juejin-%E6%8E%98%E9%87%91-important.svg" alt="进阶媛小吴"></a>
-  <a href="https://github.com/wuliwuxin/ComputerLearningLibrary/stargazers"><img src="https://badgen.net/github/stars/HarleysZhang/2021_algorithm_intern_information?color=cyan" alt="stars"></a>
-  <a href="https://github.com/HarleysZhang/2021_algorithm_intern_information/network/members"><img src="https://github.com/wuliwuxin/ComputerLearningLibrary/forks" alt="forks"></a>
+  <a href="https://github.com/wuliwuxin/ComputerLearningLibrary/stargazers"><img src="https://badgen.net/github/stars/wuliwuxin/ComputerLearningLibrary?color=cyan" alt="stars"></a>
+  <a href="https://github.com/wuliwuxin/ComputerLearningLibrary/forks"><img src="https://badgen.net/github/forks/wuliwuxin/ComputerLearningLibrary?color=cyan" alt="forks"></a>
 </p>
 
 计算学习库主要包括基础学习资料、机器学习、深度学习、阅读论文笔记、个人及推荐项目源码、面试题和面经。
