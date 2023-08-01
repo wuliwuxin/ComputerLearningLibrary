@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>MobileShop</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- servlet容器启动之后，会立即创建DispatcherServlet实例，
+  		接下来会调用该实例的init方法，此方法会依据init-param指定位置的配置文件启动spring容器 -->
+   <servlet>
+  	<servlet-name>action</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:applicationContext.xml</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+    <!-- 允许访问以html、css、js为结尾的静态资源 -->
+    <servlet-mapping>        
+	    <servlet-name>default</servlet-name>       
+	    <url-pattern>*.html</url-pattern>      
+	</servlet-mapping>
+	<servlet-mapping>        
+	    <servlet-name>default</servlet-name>       
+	    <url-pattern>*.css</url-pattern>      
+	</servlet-mapping>
+	<servlet-mapping>        
+	    <servlet-name>default</servlet-name>       
+	    <url-pattern>*.js</url-pattern>      
+	</servlet-mapping>
+		<servlet-mapping>        
+	    <servlet-name>default</servlet-name>       
+	    <url-pattern>*.png</url-pattern>      
+	</servlet-mapping>
+		<servlet-mapping>        
+	    <servlet-name>default</servlet-name>       
+	    <url-pattern>*.jpg</url-pattern>      
+	</servlet-mapping>
+	<!-- 可实现RESTful API，但是会拦截静态文件，
+	所以上面需要使用defaultServlet来处理静态文件-->
+  <servlet-mapping>
+  	<servlet-name>action</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+   <!-- 支持GET、POST、PUT与DELETE请求，解决HTTP PUT请求Spring无法获取请求参数的问题（ajax）
+   <form action="..." method="post">   
+     <input type="hidden" name="_method" value="put" /> -->  
+  <filter>
+  	<filter-name>HiddenHttpMethodFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>HiddenHttpMethodFilter</filter-name>
+  	<servlet-name>action</servlet-name>
+  </filter-mapping>
+  <!-- HttpPutFormContentFilter过滤器的作用就是获取put表单的值，
+       并将之传递到Controller中标注了method为RequestMethod.put的方法中
+       该过滤器只能接受enctype值为application/x-www-form-urlencoded的表单
+  <form action="" method="put" enctype="application/x-www-form-urlencoded">   -->
+  <filter>
+  	<filter-name>HttpMethodFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>HttpMethodFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 解决中文乱码问题 -->
+  <filter>
+  	<filter-name>Set Character Encoding</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>Set Character Encoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+</web-app>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<mapper namespace="com.huatec.edu.mobileshop.dao.MemberDao">
+	<!-- 缓存配置-->
+	<cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+	
+	<!-- 根据id查询 -->
+	<select id="findById" parameterType="int" 
+	 resultType="com.huatec.edu.mobileshop.entity.Member">
+		select * from ms_member where member_id=#{member_id}
+	</select>
+	<!-- 根据email查询 -->
+	<select id="findByEmail" parameterType="string" 
+	 resultType="com.huatec.edu.mobileshop.entity.Member">
+		select * from ms_member where email=#{email}
+	</select>
+	<!-- 根据uname查询 -->
+	<select id="findByName" parameterType="string" 
+	 resultType="com.huatec.edu.mobileshop.entity.Member">
+		select * from ms_member where uname=#{uname}
+	</select>
+	
+	<!-- insert元素,在此元素内写增加的sql语句， parameterType：参数类型-->
+	<insert id="save" parameterType="com.huatec.edu.mobileshop.entity.Member" 
+	useGeneratedKeys="true" keyProperty="member_id" >
+		insert into ms_member
+		 (member_id,uname,password,email,sex,mobile,regtime,lastlogin,image)
+		 values(#{member_id},#{uname},#{password},#{email},#{sex},#{mobile},
+		 #{regtime},#{lastlogin},#{image})
+	</insert>
+	
+	<!-- select元素，在此元素内写查询语句,resultType:结果类型 -->
+	<select id="findAll" resultType="com.huatec.edu.mobileshop.entity.Member">
+		select * from ms_member
+	</select>
+	
+	<!-- update元素，在此元素内写更新语句 -->
+	<update id="updatePwdById" parameterType="map">
+		update ms_member 
+			set password=#{password}
+		where member_id=#{member_id}
+	</update>
+	
+	<!-- delete元素，在此元素内写删除语句 -->
+	<delete id="deleteById" parameterType="int">
+		delete from ms_member where member_id=#{member_id}
+	</delete>
+	
+	<!-- 情景二的动态sql -->
+	 <update id="dynamicUpdate"
+	 parameterType="com.huatec.edu.mobileshop.entity.Member">
+	 	update ms_member
+	 	<set>
+	 		<if test="uname!=null">
+	 			uname=#{uname},
+	 		</if>
+	 		<if test="password!=null">
+	 			password=#{password},
+	 		</if>
+	 		<if test="sex!=null">
+	 			sex=#{sex},
+	 		</if>
+	 		<if test="mobile!=null">
+	 			mobile=#{mobile},
+	 		</if>
+	 		<if test="image!=null">
+	 			image=#{image},
+	 		</if>
+	 		<if test="lastlogin!=null">
+	 			lastlogin=#{lastlogin}
+	 		</if>
+	 		<if test="email!=null">
+	 			email=#{email}
+	 		</if>
+	 	</set>
+	 	where member_id=#{member_id}
+	 </update>
+	 
+	 <!-- 关联查询，一对多关系 -->
+	 <select id="findUnion" parameterType="int"
+	  resultMap="memberMap">
+	 	select * from
+	 	 ms_member mm join ms_member_address mma 
+	 	on mm.member_id=mma.member_id 
+	 	where mm.member_id=#{member_id}
+	 </select>
+	 <resultMap
+	  type="com.huatec.edu.mobileshop.entity.Member" 
+	  id="memberMap">
+	 	<id property="member_id" column="member_id"/>
+	 	<result property="uname" column="uname"/>
+	 	<result property="password" column="password"/>
+	 	<result property="email" column="email"/>
+	 	<result property="sex" column="sex"/>
+	 	<result property="mobile" column="mobile"/>
+	 	<result property="regtime" column="regtime"/>
+	 	<result property="lastlogin" column="lastlogin"/>
+	 	<result property="image" column="image"/>
+	 	<!-- "一对多"关系用collection元素 -->
+	 	<collection property="memberAddresses" javaType="java.util.List"
+	 	 ofType="com.huatec.edu.mobileshop.entity.MemberAddress">
+	 	 	<id property="address_id" column="address_id"/>
+			<result property="member_id" column="member_id"/>
+			<result property="provice" column="provice"/>
+			<result property="city" column="city"/>
+			<result property="region" column="region"/>
+			<result property="addr" column="addr"/>
+			<result property="mobile" column="mobile"/>
+			<result property="receiver" column="receiver"/>
+			<result property="creatime" column="creatime"/>
+			<result property="modifytime" column="modifytime"/>
+	 	 </collection>
+	 </resultMap>
+	 
+	
+</mapper>

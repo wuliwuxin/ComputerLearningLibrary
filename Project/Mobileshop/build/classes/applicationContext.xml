@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	
+	<!-- 开启组件扫描 -->
+	<context:component-scan base-package="com.huatec.edu.mobileshop"/>
+	<!-- SpringMVC注解支持 -->
+	<mvc:annotation-driven/>
+	
+	<!-- 配置视图解析器ViewResolver，负责将视图名解析成具体的视图技术，比如解析成html、jsp等 -->
+	<bean id="viewResolver" 
+	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 前缀属性 -->
+		<property name="prefix" value="/"/>
+		<!-- 后缀属性 -->
+		<property name="suffix" value=".html"/>
+	</bean>
+	
+	<!-- 配置数据库连接信息 -->
+	<util:properties id="jdbc" location="classpath:db.properties"/>
+	<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="#{jdbc.driver}"/>
+		<property name="url" value="#{jdbc.url}"/>
+		<property name="username" value="#{jdbc.user}"/>
+		<property name="password" value="#{jdbc.pwd}"/>
+	</bean>
+	
+	<!-- 配置SqlSessionFactoryBean -->
+	<!-- 可以定义一些属性来指定Mybatis框架的配置信息 -->
+	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 数据源，注入连接信息 -->
+		<property name="dataSource" ref="dbcp"/>
+		<!-- 用于指定sql定义文件的位置(加classpath从src下找) -->
+		<property name="mapperLocations" 
+		value="classpath:com/huatec/edu/mobileshop/sql/*.xml"/>
+	</bean>
+	
+	<!-- 配置MapperScannerConfigurer -->
+	<!-- 按指定包扫描接口，批量生成接口实现对象，id为接口名首字母小写 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 指定扫描com.huatec.edu.mobileshop.dao包下所有接口 -->
+		<property name="basePackage" 
+		value="com.huatec.edu.mobileshop.dao"/>
+		<!-- 注入sqlSessionFactory（此句可不写，自动注入sqlSessionFactory） -->
+		<property name="sqlSessionFactory" ref="ssf"/>
+	</bean>
+	
+</beans>

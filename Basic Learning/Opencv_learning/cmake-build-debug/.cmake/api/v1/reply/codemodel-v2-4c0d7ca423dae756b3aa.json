@@ -1,0 +1,159 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "opencv_demo",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter1_read_Images::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter1_read_Images-Debug-4b20031a2c03a8d39c47.json",
+					"name" : "Chapter1_read_Images",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter1_read_videos::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter1_read_videos-Debug-f4e9beccb6ff8074b069.json",
+					"name" : "Chapter1_read_videos",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter1_read_webcam::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter1_read_webcam-Debug-b619c794124e9ba1dd38.json",
+					"name" : "Chapter1_read_webcam",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter2_basic_function::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter2_basic_function-Debug-fdb0a7157c34b87a0435.json",
+					"name" : "Chapter2_basic_function",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter3_resize_crop::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter3_resize_crop-Debug-d9248255932ce7180c3d.json",
+					"name" : "Chapter3_resize_crop",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter4_draw_putext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter4_draw_putext-Debug-e91558c3c441e092f3f9.json",
+					"name" : "Chapter4_draw_putext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter5_warp_image::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter5_warp_image-Debug-4ace949d80556e49eae6.json",
+					"name" : "Chapter5_warp_image",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter6_color_detection::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter6_color_detection-Debug-1aeb579d88405694c83f.json",
+					"name" : "Chapter6_color_detection",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter7_contour_detection::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter7_contour_detection-Debug-832a9645abeb6fbdb120.json",
+					"name" : "Chapter7_contour_detection",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Chapter8_face_detection::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Chapter8_face_detection-Debug-d01733f05e3ab4dee87a.json",
+					"name" : "Chapter8_face_detection",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Project_plate_recognition::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Project_plate_recognition-Debug-d554f36dc8f55ff59e18.json",
+					"name" : "Project_plate_recognition",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "try::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-try-Debug-7c7601b38e6f811343d3.json",
+					"name" : "try",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/xinwu/Desktop/opencv_learning/cmake-build-debug",
+		"source" : "/Users/xinwu/Desktop/opencv_learning"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

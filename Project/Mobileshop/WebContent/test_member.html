@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>测试页面</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/cookie.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+/* 				$("#get_member").click(function(){
+					$.ajax({
+					type:"GET",//192.168.10.16:8081/u9_app_
+					url:"http://localhost:8080/MobileShop"+"/member/"+memberId,
+					async:true,
+					data:{_method:"GET","memberId":memberId},
+					success:function (result) {
+						console.log((result.data);
+					}
+					});
+
+				});
+				 */
+					
+				$("#update").click(function(){
+				//测试更新会员信息
+					//获取input中的值
+					
+				 	/* var memberId=$("#memberId").val().trim(); */ 
+				 	
+					var uname=$("#uname").val().trim();
+					var email=$("#email").val().trim();
+					var mobile=$("#mobile").val().trim();
+					
+					var memberId=getCookie("member_id");
+					
+					/* var memberId=19; */
+					$.ajax({
+						url:"http://localhost:8080/MobileShop"+"/member",
+						type:"post",
+						dataType:"json",
+						//传参时加：_method:"PUT" 将对应后台的put请求方法
+						data:{_method:"PUT", "memberId":memberId,  "uname":uname,
+							"email":email,"sex":1,"mobile":mobile},
+						/* data:{_method:"GET","memberId":memberId}, */
+						success:function(result){
+							alert(result.msg);
+						},
+						error:function(){
+							alert("更新异常");
+						}
+					});
+				});
+				
+
+				//测试修改密码
+				$("#update_pwd").click(function(){
+					var old_pwd=$("#old_pwd").val().trim();
+					var new_pwd=$("#new_pwd").val().trim();
+					var re_new_pwd=$("#re_new_pwd").val().trim();
+					
+					var memberId=getCookie("member_id");
+					
+				/* 	var memberId=7; */
+					if(re_new_pwd!=new_pwd){
+						alert("新密码两次输入不一致");
+						window.location.href="test.html";
+					}
+					$.ajax({
+						url:"http://localhost:8080/MobileShop"+"/member/"+memberId,
+						type:"post",
+						dataType:"json",
+						//传参时加：_method:"PUT" 将对应后台的put请求方法
+						data:{_method:"PUT","oldPwd":old_pwd,"newPwd":new_pwd},
+						success:function(result){
+							alert(result.msg);
+						},
+						error:function(){
+							alert("更新异常");
+						}
+					});
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<h3>-----测试更新会员信息-----</h3>
+<!-- 		memberid:<input type="text" id="memberId"/><br/>
+		 -->用户名：<input type="text" id="uname"/><br/>
+		邮箱：<input type="text" id="email"/><br/>
+		电话：<input type="text" id="mobile"/><br/>
+		<button id="update">更新</button><!-- <button id="get_member">获取ID</button> -->
+		<br/>
+		<h3>-----测试修改密码-----</h3>
+		请输入原密码：<input type="password" id="old_pwd"/><br/>
+		请输入新密码：<input type="password" id="new_pwd"/><br/>
+		新密码确认：<input type="password" id="re_new_pwd"/><br/>
+		<button id="update_pwd">确定</button>
+	</body>
+</html>

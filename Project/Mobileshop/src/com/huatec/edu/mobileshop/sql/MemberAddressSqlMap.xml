@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+<mapper namespace="com.huatec.edu.mobileshop.dao.MemberAddressDao">
+	<!-- 缓存配置-->
+	<cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+	
+	<update id="dynamicUpdate" parameterType="com.huatec.edu.mobileshop.entity.MemberAddress">
+		update ms_member_address
+	 	<set>
+	 		<if test="provice!=null">
+	 			provice=#{provice},
+	 		</if>
+	 		<if test="city!=null">
+	 			city=#{city},
+	 		</if>
+	 		<if test="region!=null">
+	 			region=#{region},
+	 		</if>
+	 		<if test="addr!=null">
+	 			addr=#{addr},
+	 		</if>
+	 		<if test="mobile!=null">
+	 			mobile=#{mobile},
+	 		</if>
+	 		<if test="receiver!=null">
+	 			receiver=#{receiver},
+	 		</if>
+	 		<if test="modifytime!=null">
+	 			modifytime=#{modifytime}
+	 		</if>
+	 	</set>
+	 	where address_id=#{address_id}
+	</update>
+	
+	<!-- 根据id查询 -->
+	<select id="findById" parameterType="int" 
+	 resultType="com.huatec.edu.mobileshop.entity.MemberAddress">
+		select * from ms_member_address where address_id=#{address_id}
+	</select>
+	
+	<!-- insert元素,在此元素内写增加的sql语句， parameterType：参数类型-->
+	<insert id="save" parameterType="com.huatec.edu.mobileshop.entity.MemberAddress" 
+	useGeneratedKeys="true" keyProperty="address_id" >
+		insert into ms_member_address
+		 (address_id,member_id,provice,city,region,addr,mobile,receiver,creatime,modifytime)
+		 values(#{address_id},#{member_id},#{provice},#{city},#{region},#{addr},
+		 #{mobile},#{receiver},#{creatime},#{modifytime})
+	</insert>
+	
+	<!-- select元素，在此元素内写查询语句,resultType:结果类型 -->
+	<select id="findAll" resultType="com.huatec.edu.mobileshop.entity.MemberAddress">
+		select * from ms_member_address
+	</select>
+	
+	<!-- update元素，在此元素内写更新语句 -->
+	<update id="updateReceiverById" parameterType="map">
+		update ms_member_address 
+			set receiver=#{receiver}
+		where address_id=#{address_id}
+	</update> 
+	
+	<!-- delete元素，在此元素内写删除语句 -->
+	<delete id="deleteById" parameterType="int">
+		delete from ms_member_address where address_id=#{address_id}
+	</delete>
+	
+	<!-- 动态sql测试 -->
+	<select id="dynamicIfTest" 
+	 parameterType="com.huatec.edu.mobileshop.entity.MemberAddress"
+	 resultType="com.huatec.edu.mobileshop.entity.MemberAddress">
+		select * from ms_member_address where member_id=2
+		<if test="provice!=null">
+			and provice=#{provice}
+		</if>
+		<if test="receiver!=null">
+			and receiver like #{receiver}
+		</if>
+	</select>
+	
+	<select id="dynamicChooseTest" 
+	 parameterType="com.huatec.edu.mobileshop.entity.MemberAddress"
+	 resultType="com.huatec.edu.mobileshop.entity.MemberAddress">
+	 	select * from ms_member_address where member_id=2
+	 	<choose>
+	 		<when test="provice!=null">
+	 			and provice=#{provice} 
+	 		</when>
+	 		<when test="receiver!=null">
+	 			and receiver=#{receiver}
+	 		</when>
+	 		<otherwise>
+	 			and mobile=#{mobile}
+	 		</otherwise>
+	 	</choose>
+	 </select>
+	 
+	 <select id="dynamicTrimTest"
+	  parameterType="com.huatec.edu.mobileshop.entity.MemberAddress"
+	  resultType="com.huatec.edu.mobileshop.entity.MemberAddress">
+	 	select * from ms_member_address
+	 	<trim prefix="where" prefixOverrides="and | or">
+	 		<if test="member_id!=null">
+	 			member_id=#{member_id}
+	 		</if>
+	 		<if test="provice!=null">
+	 			and provice=#{provice}
+	 		</if>
+	 		<if test="receiver!=null">
+	 			or receiver=#{receiver}
+	 		</if>
+	 	</trim>
+	 </select>
+	 
+	 <select id="dynamicWhereTest"
+	  parameterType="com.huatec.edu.mobileshop.entity.MemberAddress"
+	  resultType="com.huatec.edu.mobileshop.entity.MemberAddress">
+	 	select * from ms_member_address
+	 	<where>
+	 		<if test="member_id!=null">
+	 			member_id=#{member_id}
+	 		</if>
+	 		<if test="provice!=null">
+	 			and provice=#{provice}
+	 		</if>
+	 		<if test="receiver!=null">
+	 			or receiver=#{receiver}
+	 		</if>
+	 	</where>
+	 </select>
+	 
+	 <update id="dynamicSetTest"
+	  parameterType="com.huatec.edu.mobileshop.entity.MemberAddress">
+	 	update ms_member_address
+	 	<set>
+	 		<if test="mobile!=null">
+	 			mobile=#{mobile},
+	 		</if>
+	 		<if test="receiver!=null">
+	 			receiver=#{receiver},
+	 		</if>
+	 		<if test="addr!=null">
+	 			addr=#{addr}
+	 		</if>
+	 	</set>
+	 	where address_id=#{address_id}
+	 </update>
+	 
+	 <select id="dynamicForeachTest"
+	  resultType="com.huatec.edu.mobileshop.entity.MemberAddress">
+	 	select * from ms_member_address where address_id in
+	 	<foreach collection="list" index="index" item="item"
+	 	 open="(" separator="," close=")">
+	 	 	#{item}
+	 	 </foreach>
+	 </select>
+	 
+	 <!-- 情景一的动态sql -->
+	 <select id="dynamicSelect"
+	  parameterType="com.huatec.edu.mobileshop.entity.MemberAddress"
+	  resultType="com.huatec.edu.mobileshop.entity.MemberAddress">
+	 	select * from ms_member_address
+	 	<where>
+	 		<if test="member_id!=null">
+	 			member_id=#{member_id}
+	 		</if>
+	 		<if test="receiver!=null">
+	 			and receiver=#{receiver}
+	 		</if>
+	 		<if test="mobile!=null">
+	 			and mobile=#{mobile}
+	 		</if>
+	 	</where>
+	 </select>
+	 
+	 <!-- 关联查询，一对一关系 -->
+	 <select id="findUnion" parameterType="int"
+	  resultMap="memberAddressMap">
+	 	select * from
+	 	 ms_member mm join ms_member_address mma 
+	 	on mm.member_id=mma.member_id 
+	 	where mm.member_id=#{member_id}
+	 </select>
+	 <!-- resultMap元素中的id属性需和上面select元素的resultMap属性相同 -->
+	 <resultMap
+	  type="com.huatec.edu.mobileshop.entity.MemberAddress"
+	  id="memberAddressMap">
+	 	<id property="address_id" column="address_id"/>
+		<result property="member_id" column="member_id"/>
+		<result property="provice" column="provice"/>
+		<result property="city" column="city"/>
+		<result property="region" column="region"/>
+		<result property="addr" column="addr"/>
+		<result property="mobile" column="mobile"/>
+		<result property="receiver" column="receiver"/>
+		<result property="creatime" column="creatime"/>
+		<result property="modifytime" column="modifytime"/>
+		<!-- "一对一"关系用association元素 -->
+		<association property="member" 
+		 javaType="com.huatec.edu.mobileshop.entity.Member">
+		 	<id property="member_id" column="member_id"/>
+		 	<result property="uname" column="uname"/>
+		 	<result property="password" column="password"/>
+		 	<result property="email" column="email"/>
+		 	<result property="sex" column="sex"/>
+		 	<result property="mobile" column="mobile"/>
+		 	<result property="regtime" column="regtime"/>
+		 	<result property="lastlogin" column="lastlogin"/>
+		 	<result property="image" column="image"/>
+		 </association>
+	 </resultMap>
+	 
+	
+</mapper>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册页面</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#regist").click(function(){					
+					if ($("#uname").val()==""||$("#password").val()==""||$("#email").val()=="") {
+				        alert("有填框是空的，请全部填写完哟！");
+				    }else{				    	
+				    alert("注册");					
+					//获取input中的值
+					var uname=$("#uname").val().trim();
+					var password=$("#password").val().trim();
+					var email=$("#email").val().trim();
+					$.ajax({
+						url:"http://localhost:8080/MobileShop"+ "/member",
+						type:"post",
+						data:{/* "member_id":member_id, */"uname":uname,"password":password,"email":email},
+						dataType:"json",
+						success:function(result){
+							alert(result.msg);
+							window.location.href="login3.html"; 
+						},
+						error:function(){
+							alert("注册异常");
+						}
+					});
+				   }
+				});
+			});
+		</script>
+			<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	height:100%;
+	width:auto;
+	backgroud:url(banner.jpg);
+	background-position: center center;
+	position: relative;
+}
+#wrap {
+/* 	height: 79px;
+	width: 100; */
+	 /*background-image: url(back.jpg);   
+	 background-color: #98FB98;  */
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+}
+/* #head {
+/* 	height: 120px;
+	width: 100;
+	 background-color: #66CCCC; 
+	text-align: center;
+	position: relative;
+} */
+/* #foot {
+/* 	width: 100;
+	height: 126px;
+  background-color: #CC9933;
+	position: relative;
+} */
+#wrap .logGet {
+	height: 408px;
+	width: 368px;  
+	position: absolute;
+/* 	background-color: #FFFFFF; */
+	top: 20%;
+	right: 15%;
+}
+.logC a button {
+	width: 100%;
+	height: 45px;
+	background-color: #ee7700;
+	border: none;
+	color: white;
+	font-size: 18px;
+}
+.logGet .logD.logDtip .p1 {
+	display: inline-block;
+	font-size: 28px;
+	margin-top: 30px;
+	width: 86%;
+}
+#wrap .logGet .logD.logDtip {
+	width: 86%;
+	border-bottom: 1px solid #ee7700;
+	margin-bottom: 60px;
+	margin-top: 50px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.logGet .lgD img {
+	position: absolute;
+	top: 12px;
+	left: 8px;
+}
+.logGet .lgD input {
+	width: 100%;
+	height: 42px;
+	text-indent: 2.5rem;
+}
+#wrap .logGet .lgD {
+	width: 86%;
+	position: relative;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#wrap .logGet .logC {
+	width: 86%;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+ 
+ 
+.title {
+	font-family: "宋体";
+	color: #FFFFFF;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  /* 使用css3的transform来实现 */
+	font-size: 36px;
+	height: 40px;
+	width: 30%;
+}
+ 
+.copyright {
+	font-family: "宋体";
+	color: #FFFFFF;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  /* 使用css3的transform来实现 */
+	height: 60px;
+	width: 40%;
+	text-align:center;
+}
+	
+ 
+#foot .copyright .img {
+	width: 100%;
+	height: 24px;
+	position: relative;
+}
+
+#foot .copyright p {
+	height: 24px;
+	width: 100%;
+}
+</style>
+	</head>
+	<body>
+<div><img alt="" src="banner.jpg" height="100%" >
+<div class="header" id="head">
+  <div class="title">西红柿之家</div>
+	
+</div>
+	
+<div class="wrap" id="wrap">
+<!-- <img alt="" src="banner.jpg" height="100%" > -->
+	<div class="logGet">
+			<!-- 头部提示信息 -->
+			<div class="logD logDtip">
+				<p class="p1">注册</p>
+			</div>
+			<!-- 输入框 -->
+			<div class="lgD">
+				<img src="西红柿1.jpg" width="20" height="20" alt=""/>
+				<input type="text"
+					placeholder="输入用户名"  id="uname"/>
+			</div>
+			<div class="lgD">
+			<img src="1.jpg" width="20" height="20" alt=""/> 
+				<input type="text"
+					placeholder="输入用户密码" id="password"/>
+			</div>
+			<div class="lgD">
+			<img src="1.jpg" width="20" height="20" alt=""/> 
+				<input type="text"
+					placeholder="输入邮箱" id="email"/>
+			</div>
+			<div class="logC">
+				<a target="_self"><button id="regist">注册</button></a>
+			</div>
+		</div>
+</div>
+	
+<div class="footer" id="foot">
+  <div class="copyright">
+    <p>Copyright © 2018 1610504141 吴欣；1610504156 张梦瑶；1610504157 陈浩；1610504169 冷玉金</p>
+    <div>
+		<span>联系邮箱：123456@163.com</span>
+	</div>
+	
+	<div>
+		<span>联系地址：重庆第二师范学院</span>
+	</div>
+	  
+	<div>
+	 <span>联系电话：123456789</span>
+	</div>
+  </div>	
+</div>
+</div>
+	</body>
+</html>

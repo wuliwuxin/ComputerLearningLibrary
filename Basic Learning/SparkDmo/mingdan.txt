@@ -1,0 +1,7 @@
+hadoop true
+spark false
+hive true
+hbase false
+sqoop false
+flume false
+oozie false

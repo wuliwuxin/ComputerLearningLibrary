@@ -1,0 +1,25 @@
+# data_analysis
+
+## 数据分析笔试题集合
+
+* [美团点评2020校招](https://www.nowcoder.com/test/21910808/summary)
+- [搜狐畅游2020校招笔试](https://www.nowcoder.com/test/21021878/summary)
+* [网易2020校招笔试-正式批](https://www.nowcoder.com/test/20791472/summary)
+- [网易2020校招笔试-提前批](https://www.nowcoder.com/test/20791476/summary)
+* [网易2020校招笔试-提前批](https://www.nowcoder.com/test/20791457/summary)
+- [京东2019校招](https://www.nowcoder.com/test/14274814/summary)
+* [京东2019春招](https://www.nowcoder.com/test/16778061/summary)
+- [搜狐畅游2019校招](https://www.nowcoder.com/test/16775426/summary)
+* [小红书2019年校园招聘-第一批](https://www.nowcoder.com/test/16546808/summary)
+- [小红书2019年校园招聘-第二批](https://www.nowcoder.com/test/16546817/summary)
+* [顺丰科技2019秋招](https://www.nowcoder.com/test/15253697/summary)
+- [网易2018校园招聘](https://www.nowcoder.com/test/10730167/summary)
+* [摩拜2018校招](https://www.nowcoder.com/test/11453292/summary)
+- [网易2018校招](https://www.nowcoder.com/test/10778804/summary)
+* [京东2018秋招](nowcoder.com/test/10630596/summary)
+- [吉比特2018秋招-A卷](https://www.nowcoder.com/test/11252019/summary)
+* [吉比特2018秋招-B卷](https://www.nowcoder.com/test/11252102/summary)
+- [网易2018实习生招聘](https://www.nowcoder.com/test/10780714/summary)
+* [欢聚时代2018校招-A卷](https://www.nowcoder.com/test/11283387/summary)
+- [欢聚时代2018校招-B卷](https://www.nowcoder.com/test/11283368/summary)
+* [欢聚时代2018校招笔试题-成都场](https://www.nowcoder.com/test/11268806/summary)

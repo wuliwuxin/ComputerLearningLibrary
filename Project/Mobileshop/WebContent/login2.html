@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			//页面载入完毕后执行,是$(document).ready(function(){});的简写
+			$(function(){
+				$("#login").click(function(){
+					var uname=$("#uname").val().trim();
+					var password=$("#password").val().trim();
+					$.ajax({
+						url:"http://localhost:8080/MobileShop"+"/member/login",
+						type:"post",
+						dataType:"json",
+						data:{"uname":uname,"password":password},
+						success:function(result){
+							if(result.status==0){ 
+								window.location.href="test_member.html";
+							}else{
+								alert(result.msg);
+							}
+						},
+						error:function(){
+							alert("登录异常");
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+			用户名：<input type="text" id="uname"/>
+			密码：<input type="password" id="password"/>
+			<button id="login">登录</button>
+	</body>
+</html>
