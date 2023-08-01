@@ -1,0 +1,26 @@
+# ninja log v5
+465	502	1690685927744090001	Chapter7_contour_detection	312f198c2314045e
+484	530	1690468906072092067	Chapter1_read_videos	6b06bfe827f73b33
+543	591	1690534945812839673	Chapter6_color_detection	25c4efdddb70fdcb
+6	593	1690532314256268609	CMakeFiles/Chapter5_warp_image.dir/Chapter5_warp_image.cpp.o	f714d41778f16fb4
+593	646	1690532314311727529	Chapter5_warp_image	2dca8d1190130e40
+6	451	1690721403466329995	CMakeFiles/Project_plate_recognition.dir/Project_plate_recognition.cpp.o	b0a8f122a4229df2
+6	465	1690685927705289271	CMakeFiles/Chapter7_contour_detection.dir/Chapter7_contour_detection.cpp.o	81fac1e3d1626c85
+12	484	1690468906024363420	CMakeFiles/Chapter1_read_videos.dir/Chapter1_read_videos.cpp.o	75dd91d485b30c60
+6	477	1690514139263297067	CMakeFiles/Chapter3_resize_crop.dir/Chapter3_resize_crop.cpp.o	916dd681e49642b6
+6	408	1690516094949915186	CMakeFiles/Chapter4_draw_putext.dir/Chapter4_draw_putext.cpp.o	40663d648ed55e6e
+644	696	1690692938365098484	Chapter8_face_detection	6de9f0067e59de5b
+0	51	1690721431866188298	build.ninja	8f066ea183e54952
+0	446	1690469079654717505	CMakeFiles/Chapter1_read_webcam.dir/Chapter1_read_webcam.cpp.o	bb3bebf927fac17e
+446	494	1690469079704439494	Chapter1_read_webcam	6d82414550770bf9
+551	598	1690509452722001655	Chapter2_basic_function	abb83cca8c9c7af2
+408	445	1690516094987849734	Chapter4_draw_putext	1aaf6efd7f1755a9
+6	424	1690504828934912386	CMakeFiles/Chapter1_read_Images.dir/Chapter1_read_Images.cpp.o	145d2a924ddd1258
+451	490	1690721403507023477	Project_plate_recognition	729cda020ba5f14a
+477	526	1690514139314246766	Chapter3_resize_crop	4a799e4c0646c2fe
+424	463	1690504828976443713	Chapter1_read_Images	ba734b07a3cbcb36
+6	550	1690509452671784445	CMakeFiles/Chapter2_basic_function.dir/Chapter2_basic_function.cpp.o	1a38ff273f55f4b4
+6	543	1690534945762849611	CMakeFiles/Chapter6_color_detection.dir/Chapter6_color_detection.cpp.o	db3fa7fc20e34fb7
+9	644	1690692938309982756	CMakeFiles/Chapter8_face_detection.dir/Chapter8_face_detection.cpp.o	25cf5ac08f4d2efa
+0	453	1690691454118488695	CMakeFiles/try.dir/try.cpp.o	9f5b08322436ac46
+453	501	1690691454167454828	try	7559dcdf86c2b060
