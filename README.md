@@ -48,9 +48,9 @@ AI 科研入坑指南
 
 - [ ] 基础数学知识
 
-[深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <a href="https://github.com/scutan90/DeepLearning-500-questions/stargazers"><img src="https://badgen.net/github/stars/scutan90/DeepLearning-500-questions?color=cyan" alt="stars"></a>，以问答形式对常用的概率知识、线性代数、机器学习、深度学习、计算机视觉等热点问题进行阐述，以帮助自己及有需要的读者。
+📖 [深度学习500问](https://github.com/scutan90/DeepLearning-500-questions) <a href="https://github.com/scutan90/DeepLearning-500-questions/stargazers"><img src="https://badgen.net/github/stars/scutan90/DeepLearning-500-questions?color=cyan" alt="stars"></a>，以问答形式对常用的概率知识、线性代数、机器学习、深度学习、计算机视觉等热点问题进行阐述，以帮助自己及有需要的读者。
 
-📚 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计https://github.com/CyC2018/CS-Notes <a href="https://github.com/CyC2018/CS-Notes/stargazers"><img src="https://badgen.net/github/stars/CyC2018/CS-Notes?color=cyan" alt="stars"></a>
+💻 [技术面试](https://github.com/CyC2018/CS-Notes)必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计。 <a href="https://github.com/CyC2018/CS-Notes/stargazers"><img src="https://badgen.net/github/stars/CyC2018/CS-Notes?color=cyan" alt="stars"></a>
 
 - [x] [快速学习OpenCV C++](0_BasicLearning/OpenCV_learning/README_CN.md)
 
@@ -73,7 +73,7 @@ AI 科研入坑指南
 ### 机器学习
 - [ ] 机器学习
 1. [莫烦机器学习相关教程](https://morvanzhou.github.io/tutorials)，[大佬🧍‍GitHub](https://github.com/MorvanZhou)。
-2. kaggle一千多块奖牌获得者、世界上第一位kaggle四重大师编写的号称解决（几乎）所有机器学习问题代码书！[https://github.com/abhishekkrthakur/approachingalmost](https://github.com/abhishekkrthakur/approachingalmost)<img src="https://badgen.net/github/stars/abhishekkrthakur/approachingalmost?color=cyan" alt="stars">
+2. kaggle一千多块奖牌获得者、世界上第一位kaggle四重大师编写的号称解决（几乎）所有机器学习问题代码书！[项目地址](https://github.com/abhishekkrthakur/approachingalmost)<img src="https://badgen.net/github/stars/abhishekkrthakur/approachingalmost?color=cyan" alt="stars">
 
 ### 深度学习
 - [ ] 深度学习
@@ -83,7 +83,7 @@ AI 科研入坑指南
 - [ ] 计算机视觉
 ### NLP
 - [ ] NLP
-1. [几乎最全的中文NLP资源库] (https://github.com/fighting41love/funNLP)<img src="https://badgen.net/github/stars/fighting41love/funNLP?color=cyan" alt="stars">
+1. [几乎最全的中文NLP资源库] (https://github.com/fighting41love/funNLP)  <img src="https://badgen.net/github/stars/fighting41love/funNLP?color=cyan" alt="stars">
 2. NLP推荐项目知识图谱构建，自动问答，基于kg的自动问答。以疾病为中心的一定规模医药领域知识图谱，并以该知识图谱完成自动问答与分析服务。[https://github.com/liuhuanyong/QASystemOnMedicalKG](https://github.com/liuhuanyong/QASystemOnMedicalKG)<img src="https://badgen.net/github/stars/QASystemOnMedicalKG?color=cyan" alt="stars">
 
 - HanLP项目: [HanLP](https://github.com/hankcs/HanLP)
@@ -95,7 +95,8 @@ AI 科研入坑指南
 - [x] [经典的Image classification和Object detection](5_Paper/CV-Paper/README_EN.md)
 - [ ] 经典的Segmentation
 - [ ] 综述
-  论文: [Foundational Models Defining a New Era in Vision: A Survey and Outlook](5_Paper/Survey/Foundational Models Defining a New Era in Vision - A Survey and Outlook.pdf)。视觉基础模型: https://github.com/awaisrauf/Awesome-CV-Foundational-Models 
+
+  论文: [Foundational Models Defining a New Era in Vision: A Survey and Outlook](5_Paper/Survey/Foundational_Models_Defining_a_New_Era_in_Vision-A_Survey_and_Outlook.pdf)。视觉基础模型: https://github.com/awaisrauf/Awesome-CV-Foundational-Models 
 <p align="center">
 	<img src="pictures/Survey_vision.jpg">
 </p>
