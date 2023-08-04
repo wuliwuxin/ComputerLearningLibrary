@@ -205,6 +205,7 @@ AI 科研入坑指南
 - [ ] 工具
 1. [Streamlit](https://streamlit.io/)是一个简单易用的Python库，可以帮助您快速创建交互式的数据应用程序和仪表板。
 2. [Model Log ](https://github.com/NLP-LOVE/Model_Log)<img src="https://badgen.net/github/stars/NLP-LOVE/Model_Log?color=cyan" alt="stars">一款基于 Python3 的轻量级机器学习(Machine Learning)、深度学习(Deep Learning)模型训练评估指标可视化工具，与 TensorFlow、Pytorch、PaddlePaddle结合使用，可以记录模型训练过程当中的**超参数、Loss、Accuracy、Precision、F1值等，并以曲线图的形式进行展现对比**，轻松三步即可实现。
+3. AI 生成专属头像去年 [Midjourney ](https://www.midjourney.com/home/)和 [Stable Diffusion](https://stablediffusionweb.com/) 这两款 AI 绘画神器一经发布。开源 AI 头像生成器 Web 应用程序-[Photoshot](https://github.com/shinework/photoshot)<img src="https://badgen.net/github/stars/shinework/photoshot?color=cyan" alt="stars">，用户将自己的个人头像上传后，可借助 Stable Diffusion 模型进行训练，并生成一款拥有不同风格的个人头像。
 
 ## 我的公众号
 更多知识和最新博客，欢迎扫码关注我的公众号`进阶媛小吴`，记录我的成长之路，分享技术总结、读书笔记和个人感悟。
