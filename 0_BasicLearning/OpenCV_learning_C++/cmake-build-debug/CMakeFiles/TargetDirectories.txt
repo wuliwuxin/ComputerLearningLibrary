@@ -1,0 +1,14 @@
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter1_read_Images.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter1_read_videos.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter1_read_webcam.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter2_basic_function.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter3_resize_crop.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter4_draw_putext.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter5_warp_image.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter6_color_detection.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter7_contour_detection.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Chapter8_face_detection.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/try.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/Project_plate_recognition.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/xinwu/iCloud云盘（归档）/Documents/github_project/ComputerLearningLibrary/0_BasicLearning/OpenCV_learning/cmake-build-debug/CMakeFiles/rebuild_cache.dir
