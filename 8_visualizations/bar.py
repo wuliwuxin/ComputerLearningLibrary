@@ -1,4 +1,4 @@
-# 带饼状图的柱状图
+# 柱状图
 import pandas as pd
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
