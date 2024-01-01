@@ -20,11 +20,11 @@
 
 [Code](plt_line_chart.py)
 
-![折线图](/picture/line_chart.png) 
+![折线图](picture/line_chart.png) 
 
 ## 柱状图
 
-![柱状图](/picture/bar.png) 
+![柱状图](picture/bar.png) 
 
 ## 带饼状图的柱状图
 
@@ -32,7 +32,7 @@
 
 [Code](bar_with_pie.py)
 
-![带饼状图的柱状图](/picture/bar_with_pie.png)
+![带饼状图的柱状图](picture/bar_with_pie.png)
 
 ## 散点图
 散点图是一种常用的数据可视化方法，适用于展示两个或多个变量间的关系，特别是确定变量之间是否存在相关性。
@@ -57,7 +57,7 @@
 
 [Code](draw_roc.py)
 
-![ROC曲线](/picture/roc_auc.png)
+![ROC曲线](picture/roc_auc.png)
 
 ## 雷达图
 
@@ -66,7 +66,7 @@
 
 [Code](radar_chart.py)
 
-![雷达图](/picture/radar_chart.png)
+![雷达图](picture/radar_chart.png)
 
 ## 推理时间和准确率的关系图
 
