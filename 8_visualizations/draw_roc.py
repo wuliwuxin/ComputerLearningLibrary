@@ -34,7 +34,9 @@ for i, model in enumerate(model_name):
     plt.plot(all_fpr, mean_tpr, label='{}, AUC = {:.2f}%'.format(model, roc_auc*100), color=colors[i % len(colors)])
 
 # 添加图例、标题和轴标签
-plt.legend()
+# plt.legend()
+# 设置legend的字号大小
+plt.legend(prop = {'size':14})
 plt.xlabel('False Positive Rate', fontsize=16)  # x轴标签
 plt.ylabel('True Positive Rate', fontsize=16)  # y轴标签
 
